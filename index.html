@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Descomplic Life</title>
+<meta name="description" content="Descomplic Life, em Lajeado (RS). Medicina personalizada, oito programas especializados e equipe multidisciplinar sob direção médica do Dr. Matheus Rodrigues Nascimento, CRM-RS 54451.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;800&family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500&family=Jost:wght@400;500&display=swap">
+<style>
+/* Layout: "a Casa em capítulos" — full-bleed photography carries every section; paper and onyx bands alternate;
+   type follows the brand kit: Archivo light for display, one italic Instrument Serif accent in orange, mono eyebrows. */
+:root{
+  --paper:#F4EFE6; --paper-2:#EBE4D8; --card:#FBF8F2;
+  --ink:#1A1815; --ink-2:#57514A; --muted:#8C8478; --line:rgba(26,24,21,.12);
+  --onyx:#141210; --onyx-2:#1E1B18; --on-dark:#F4EFE6; --on-dark-2:rgba(244,239,230,.66); --dark-line:rgba(244,239,230,.14);
+  --orange:#E8471A; --orange-deep:#C93C14; --orange-soft:#F2805C;
+  --navy:#0E1D45; --sage:#6F7A5F; --gold:#B8953F;
+  --display:'Archivo','Inter',system-ui,sans-serif;
+  --accent:'Cormorant Garamond','Garamond','Baskerville',Georgia,serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'Jost','Futura','Century Gothic','Avenir Next',sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --maxw:1320px;
+  color-scheme:light;
+  --sym:url(data:image/png;base64,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);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:300;text-wrap:balance}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+@media (min-width:800px){.wrap{padding-left:max(48px,env(safe-area-inset-left,0px));padding-right:max(48px,env(safe-area-inset-right,0px))}}
+.eyebrow{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.46em;margin-right:-.46em;text-transform:uppercase;color:var(--orange)}
+.em{font-family:var(--accent);font-style:italic;font-weight:500;font-size:1.08em;line-height:.9;color:var(--orange);letter-spacing:-.005em}
+.dark .em{color:var(--orange-soft)}
+.h2{font-family:var(--display);font-weight:300;font-size:clamp(2.3rem,5vw,4.4rem);line-height:1;letter-spacing:-.035em}
+.lede{color:var(--ink-2);font-size:clamp(1rem,1.2vw,1.12rem);max-width:34em}
+.dark{background:var(--onyx);color:var(--on-dark)}
+.dark .lede{color:var(--on-dark-2)}
+.sec{padding-block:clamp(88px,11vw,160px)}
+
+/* ---------- brand lock ---------- */
+.sym{display:inline-block;width:30px;aspect-ratio:1297/1004;background:var(--orange);-webkit-mask:var(--sym) center/contain no-repeat;mask:var(--sym) center/contain no-repeat;flex:none}
+.lock{display:inline-flex;align-items:center;gap:12px;text-decoration:none;line-height:1}
+.lock img{height:21px;width:auto;max-width:none;display:block}
+footer .lock img{height:24px}
+.nav .lg-light,.nav.solid .lg-dark{display:none}
+.nav.solid .lg-light{display:block}
+@media (max-width:420px){.lock img{height:17px}}
+.lock .wm{font-family:var(--display);font-size:1.02rem;letter-spacing:.01em;white-space:nowrap}
+.lock .wm b{font-weight:800;letter-spacing:.06em;font-size:.86em}
+.lock .wm span{font-weight:400}
+
+/* ---------- buttons ---------- */
+/* buttons: squared, label + divided arrow cell; fill sweeps in from the left on hover */
+.btn{--arw:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='M0 6h22M17 1l5 5-5 5' fill='none' stroke='black' stroke-width='1.2'/%3E%3C/svg%3E");
+  display:inline-flex;align-items:center;justify-content:space-between;gap:0;min-height:56px;padding:0 0 0 26px;border-radius:2px;border:1px solid transparent;
+  font-family:var(--mono);font-size:.76rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap;cursor:pointer;
+  background-repeat:no-repeat;background-size:0% 100%;background-position:0 0;
+  transition:background-size .6s var(--ease-out),color .4s var(--ease),border-color .4s var(--ease)}
+.btn{line-height:1}
+.btn>*{align-self:center}
+.btn svg{display:none}
+.btn::after{content:"";flex:none;align-self:stretch;width:56px;margin-left:26px;border-left:1px solid rgba(255,255,255,.3);background:currentColor;
+  -webkit-mask:var(--arw) 42% 50%/22px 11px no-repeat;mask:var(--arw) 42% 50%/22px 11px no-repeat;transition:-webkit-mask-position .5s var(--ease-out),mask-position .5s var(--ease-out)}
+.btn:hover::after{-webkit-mask-position:62% 50%;mask-position:62% 50%}
+.btn-o{background-color:var(--orange);background-image:linear-gradient(var(--orange-deep),var(--orange-deep));color:#fff}
+.btn-o:hover{background-size:100% 100%}
+.btn-line{border-color:currentColor;background-color:transparent;background-image:linear-gradient(var(--ink),var(--ink))}
+.btn-line::after{border-left-color:currentColor;opacity:.9}
+.btn-line:hover{background-size:100% 100%;border-color:var(--ink);color:var(--paper)}
+.dark .btn-line,.hero .btn-line,.final .btn-line{background-image:linear-gradient(var(--on-dark),var(--on-dark))}
+.dark .btn-line:hover,.hero .btn-line:hover,.final .btn-line:hover{border-color:var(--on-dark);color:var(--ink)}
+.arrow-link{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding-block:6px;border-bottom:1px solid color-mix(in srgb,currentColor 22%,transparent);transition:border-color .4s var(--ease)}
+.arrow-link:hover{border-bottom-color:color-mix(in srgb,currentColor 70%,transparent)}
+.arrow-link svg{width:16px;height:16px;transition:transform .45s var(--ease)}
+.arrow-link:hover svg{transform:translateX(6px)}
+
+/* ---------- nav ---------- */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:var(--onyx);transition:background-color .5s var(--ease)}
+body.scrolled::before{background:var(--paper)}
+.nav{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:60;color:var(--on-dark);transition:background-color .5s var(--ease),color .5s var(--ease),box-shadow .5s var(--ease)}
+.nav::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,18,16,.55),rgba(20,18,16,0));pointer-events:none;transition:opacity .5s}
+.nav .row{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px;transition:height .5s var(--ease)}
+.nav .links{display:flex;gap:36px}
+.nav .links a{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;position:relative;padding-block:8px;opacity:.86;transition:opacity .3s}
+.nav .links a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav .links a:hover{opacity:1}.nav .links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{min-height:44px;padding:0 0 0 18px;font-size:.7rem}
+.nav .btn::after{width:44px;margin-left:18px}
+.nav.solid{background:rgba(244,239,230,.92);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.nav.solid::before{opacity:0}
+.nav.solid .row{height:70px}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;align-items:center;justify-content:center;cursor:pointer}
+.menu-btn i{display:block;width:16px;height:1px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor}
+.menu-btn[aria-expanded="true"] i{box-shadow:none;transform:rotate(45deg)}
+.sheet{position:fixed;inset:0;z-index:55;background:var(--onyx);color:var(--on-dark);padding:calc(110px + env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(24px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:8px}
+.sheet a.l{font-family:var(--display);font-weight:300;font-size:2.2rem;letter-spacing:-.03em;text-decoration:none;padding-block:12px;border-bottom:1px solid var(--dark-line)}
+.sheet .btn{margin-top:auto}
+@media (max-width:960px){.nav .links,.nav .row>.btn{display:none}.menu-btn{display:inline-flex}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:clamp(640px,96svh,940px);color:var(--on-dark);background:var(--onyx);overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s var(--ease)}
+.slide.on{opacity:1}
+.slide img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);transform-origin:50% 70%}
+.slide img{object-position:var(--pos,center)}
+@media (max-width:700px){.slide img{transform-origin:50% 30%;object-position:var(--mpos,center)}}
+.slide.on img{animation:kb 9s linear both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1.02)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(to top,rgba(20,18,16,.88) 0%,rgba(20,18,16,.5) 34%,rgba(20,18,16,.08) 62%,rgba(20,18,16,.3) 100%),
+  linear-gradient(to right,rgba(20,18,16,.45),rgba(20,18,16,0) 60%)}
+.hero .inner{height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(40px,6vw,72px)}
+.chip{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:9px 16px;border-radius:999px;border:1px solid rgba(244,239,230,.28);background:rgba(20,18,16,.25);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.hero h1{font-family:var(--display);font-weight:300;font-size:clamp(2.9rem,6.2vw,5.8rem);line-height:.95;letter-spacing:-.045em;margin-top:22px;max-width:13em}
+.hero h1 .em{font-size:1.12em;color:var(--orange-soft)}
+.hero .row2{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 48px;margin-top:28px}
+.hero .sub{max-width:30em;color:rgba(244,239,230,.8);font-size:clamp(1rem,1.25vw,1.1rem)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hero .meta{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:clamp(28px,3.6vw,44px);padding-top:16px;border-top:1px solid rgba(244,239,230,.2);font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,239,230,.7)}
+.dots{display:flex;gap:10px;align-items:center}
+.dots button{width:38px;height:24px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.dots button::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(244,239,230,.3)}
+.dots button::after{content:"";position:absolute;left:0;top:50%;height:2px;width:0;background:var(--on-dark)}
+.dots button.on::after{animation:fill 6.5s linear forwards}
+@keyframes fill{to{width:100%}}
+@media (max-width:640px){.hero .meta .cap #slideCap,.hero .meta .cap>span+span{display:none}.hero .meta>span:nth-child(2){display:none}.hero .ctas{width:100%}.hero .ctas .btn{flex:1 1 100%}}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1,.hero .row2,.hero .meta{animation:up 1.2s var(--ease-out) both}
+  .hero .row2{animation-delay:.16s}.hero .meta{animation-delay:.3s}
+}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* ---------- marquee ---------- */
+.marq{border-bottom:1px solid var(--line);overflow:hidden;background:var(--paper)}
+.marq .track{display:flex;width:max-content;gap:56px;padding-block:22px;animation:mq 46s linear infinite}
+.marq span{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);display:inline-flex;align-items:center;gap:56px;white-space:nowrap}
+.marq span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- welcome ---------- */
+.welcome .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:28px;row-gap:56px;align-items:center}
+.welcome .txt{grid-column:1/6;min-width:0}
+.welcome .h2{margin-top:24px}
+.welcome .lede{margin-top:28px}
+.welcome .txt .arrow-link{margin-top:36px}
+.welcome .pics{grid-column:7/13;position:relative;min-width:0;padding-bottom:12%}
+.welcome .p1{width:78%;margin-left:auto;aspect-ratio:4/5;overflow:hidden}
+.welcome .p2{position:absolute;left:0;bottom:0;width:44%;aspect-ratio:3/4;overflow:hidden;border:10px solid var(--paper)}
+.welcome .pics img{width:100%;height:100%;object-fit:cover}
+.welcome .tag{position:absolute;right:0;top:calc(100% - 12% + 14px);font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:900px){.welcome .txt,.welcome .pics{grid-column:1/-1}}
+
+/* reveal: images ease in from a slight zoom; content is visible at rest */
+.zoom{overflow:hidden}
+.zoom img{transition:transform 1.6s var(--ease-out)}
+.js .zoom:not(.seen) img{transform:scale(1.1)}
+
+/* ---------- programs ---------- */
+.programs .head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 48px;margin-bottom:clamp(40px,5vw,64px)}
+.programs .head .h2{margin-top:22px}
+.programs .head .lede{max-width:24em}
+.pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(240px,24vw,340px);gap:14px}
+.pc{position:relative;overflow:hidden;text-decoration:none;color:var(--on-dark);background:var(--onyx);isolation:isolate}
+.pc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease-out)}
+.pc::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(20,18,16,.86) 0%,rgba(20,18,16,.3) 42%,rgba(20,18,16,0) 70%);transition:background-color .6s}
+.pc .in{position:absolute;inset:auto 0 0 0;padding:22px 22px 20px;display:grid;gap:6px}
+.pc .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,239,230,.72)}
+.pc h3{font-family:var(--display);font-weight:400;font-size:clamp(1.2rem,1.6vw,1.5rem);line-height:1.08;letter-spacing:-.02em}
+.pc .d{font-size:.88rem;line-height:1.5;color:rgba(244,239,230,.82);max-height:0;opacity:0;overflow:hidden;transition:max-height .6s var(--ease),opacity .5s var(--ease)}
+.pc .go{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(244,239,230,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(244,239,230,.28);transition:background-color .4s,transform .5s var(--ease)}
+.pc .go svg{width:15px;height:15px}
+.pc:hover img{transform:scale(1.06)}
+.pc:hover .d,.pc:focus-visible .d{max-height:6em;opacity:1}
+.pc:hover .go{background:var(--orange);border-color:var(--orange);transform:rotate(-45deg)}
+.pc.big{grid-column:span 2;grid-row:span 2}
+.pc.wide{grid-column:span 2}
+.pc.big h3{font-size:clamp(1.9rem,3.4vw,3.2rem);font-weight:300;letter-spacing:-.035em}
+.pc.big .in{padding:32px}
+.pc.big .d{max-height:none;opacity:1;font-size:1rem;max-width:28em}
+.pc .flag{justify-self:start;margin-bottom:8px;font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:var(--orange);color:#fff}
+.ptile{background:var(--card);border:1px solid var(--line);padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;text-decoration:none}
+.ptile p{font-family:var(--display);font-weight:300;font-size:clamp(1.35rem,1.9vw,1.75rem);line-height:1.12;letter-spacing:-.025em}
+.ptile .arrow-link{align-self:flex-start;color:var(--orange-deep)}
+@media (max-width:1000px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(220px,52vw,320px)}.pc.big{grid-row:span 2}}
+@media (max-width:560px){.pgrid{gap:10px;grid-auto-rows:62vw}.pc .in{padding:14px 14px 14px}.pc h3{font-size:1.08rem}.pc .go{width:34px;height:34px;top:10px;right:10px}.pc.big{grid-row:span 2}.pc.big .in{padding:20px}.ptile{padding:18px}.ptile p{font-size:1.15rem}}
+@media (hover:none){.pc .d{display:none}.pc.big .d{display:block}}
+
+/* ---------- a casa ---------- */
+.casa .head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:28px;row-gap:24px;align-items:end;margin-bottom:clamp(40px,5vw,64px)}
+.casa .head .t{grid-column:1/8}
+.casa .head .h2{margin-top:22px}
+.casa .head .side{grid-column:9/13;display:grid;gap:22px}
+.rail-ctrl{display:flex;gap:10px}
+.rail-ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--dark-line);background:transparent;color:var(--on-dark);display:grid;place-items:center;cursor:pointer;transition:background-color .35s,border-color .35s,color .35s}
+.rail-ctrl button:hover{background:var(--on-dark);color:var(--ink);border-color:var(--on-dark)}
+.rail-ctrl svg{width:18px;height:18px}
+@media (max-width:900px){.casa .head .t,.casa .head .side{grid-column:1/-1}}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));scroll-padding-left:max(20px,env(safe-area-inset-left,0px))}
+@media (min-width:800px){.rail{padding-left:max(48px,calc((100vw - var(--maxw))/2 + 48px));padding-right:48px;scroll-padding-left:max(48px,calc((100vw - var(--maxw))/2 + 48px))}}
+.rail::-webkit-scrollbar{display:none}
+.room{flex:0 0 clamp(280px,34vw,500px);scroll-snap-align:start;margin:0}
+.room .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--onyx-2)}
+.room.wide{flex-basis:clamp(300px,52vw,780px)}
+.room.wide .ph{aspect-ratio:auto;height:100%;min-height:0}
+.room .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease-out)}
+.room:hover .ph img{transform:scale(1.04)}
+.room .label{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:14px;padding:14px 18px 14px 14px;border-radius:14px;background:rgba(20,18,16,.62);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);max-width:calc(100% - 32px)}
+.room .label .sym{width:26px}
+.room .label b{display:block;font-family:var(--display);font-weight:400;font-size:1.2rem;letter-spacing:-.02em;line-height:1.1}
+.room .label small{display:block;margin-top:4px;font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-2)}
+.room figcaption{margin-top:18px;display:grid;gap:8px;max-width:32em}
+.room figcaption .z{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange-soft)}
+.room figcaption p{color:var(--on-dark-2);font-size:.95rem}
+.rooms-list{margin-top:clamp(48px,6vw,80px);padding-top:24px;border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap;gap:12px 28px;font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-2)}
+.rooms-list li{list-style:none;display:flex;align-items:center;gap:10px}
+.rooms-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c,var(--orange))}
+.rooms-list{padding-left:0;margin-bottom:0}
+
+/* ---------- doctor ---------- */
+.doc .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:28px;row-gap:56px;align-items:center}
+.doc .pics{grid-column:1/7;position:relative;min-width:0}
+.doc .plate{aspect-ratio:4/5;background:var(--paper-2);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(22px,3vw,36px);padding:8%;text-align:center}
+.doc .plate img{width:min(64%,420px);height:auto}
+.doc .plate .wm{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,2rem);letter-spacing:.01em;white-space:nowrap}
+.doc .plate .wm b{font-weight:800;letter-spacing:.06em;font-size:.86em}
+.doc .plate .wm span{font-weight:400}
+.doc .plate small{font-family:var(--mono);font-size:.66rem;letter-spacing:.4em;margin-right:-.4em;text-transform:uppercase;color:var(--on-dark-2)}
+.doc .main{aspect-ratio:4/5;overflow:hidden;background:#3a3c41}
+.doc .main img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
+.doc .side{position:absolute;right:-6%;bottom:-6%;width:30%;aspect-ratio:3/4;overflow:hidden;border:10px solid var(--paper);background:#3a3c41}
+.doc .side img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
+.doc .badge{position:absolute;left:18px;top:18px;font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:8px 13px;border-radius:999px;background:rgba(20,18,16,.55);color:var(--on-dark);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.doc .txt{grid-column:8/13;min-width:0}
+.doc blockquote{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.06;letter-spacing:-.03em}
+.doc .who{margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.doc .who b{display:block;font-family:var(--display);font-weight:500;font-size:1.15rem;letter-spacing:-.01em}
+.doc .who span{display:block;margin-top:6px;font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.doc .bio{margin-top:20px;color:var(--ink-2);max-width:32em}
+.doc .ctas{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:900px){.doc .pics,.doc .txt{grid-column:1/-1}.doc .pics{margin-right:6%}.doc .plate{aspect-ratio:4/3}}
+
+/* ---------- method ---------- */
+.method{background:var(--paper-2)}
+.method .h2{margin-top:22px;max-width:12em}
+.steps{list-style:none;margin:clamp(44px,5vw,72px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.steps li{min-width:0}
+.steps .ph{aspect-ratio:4/5;overflow:hidden;background:var(--paper)}
+.steps .ph img{width:100%;height:100%;object-fit:cover}
+.steps .n{margin-top:20px;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--orange-deep)}
+.steps .n::after{content:"";flex:1;height:1px;background:var(--line)}
+.steps h3{margin-top:12px;font-family:var(--display);font-weight:400;font-size:clamp(1.25rem,1.7vw,1.5rem);line-height:1.12;letter-spacing:-.02em}
+.steps p{margin-top:8px;color:var(--ink-2);font-size:.93rem}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:44px}}
+@media (max-width:480px){.steps{gap:16px;row-gap:36px}.steps p{font-size:.86rem}}
+
+/* ---------- feed (lifestyle) ---------- */
+.feed .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(40px,5vw,64px)}
+.feed .h2{margin-top:22px;max-width:13em}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.ft{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--paper-2);color:var(--on-dark);text-decoration:none;isolation:isolate}
+.ft img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease-out)}
+.ft:hover img{transform:scale(1.05)}
+.ft.photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(20,18,16,.62),rgba(20,18,16,0) 46%)}
+.ft .sym{position:absolute;top:18px;left:18px;width:24px}
+.ft .cap{position:absolute;left:20px;right:20px;bottom:18px}
+.ft .cap small{display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
+.ft .cap b{display:block;margin-top:4px;font-family:var(--display);font-weight:400;font-size:clamp(1rem,1.6vw,1.35rem);letter-spacing:-.02em}
+.ft.paper{background:var(--card);color:var(--ink);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;padding:clamp(20px,3vw,40px)}
+.ft.paper .q{font-family:var(--display);font-weight:300;font-size:clamp(1.3rem,2.4vw,2.2rem);line-height:1.08;letter-spacing:-.03em}
+.ft.paper small{margin-top:16px;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.ft.navy{background:var(--navy);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,3vw,40px)}
+.ft.navy .q{font-family:var(--display);font-weight:300;font-size:clamp(1.3rem,2.4vw,2.2rem);line-height:1.08;letter-spacing:-.03em}
+.ft.navy small{margin-top:16px;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange-soft)}
+@media (max-width:700px){.fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid .ft:last-child{display:none}.ft .sym{top:12px;left:12px;width:20px}.ft .cap{left:12px;right:12px;bottom:12px}.ft.paper,.ft.navy{padding:16px}.ft.paper .q,.ft.navy .q{font-size:1.1rem}}
+
+/* ---------- voices ---------- */
+.voices .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:28px;row-gap:48px;align-items:stretch}
+.voices .ph{grid-column:1/6;position:relative;overflow:hidden;min-height:420px}
+.voices .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.voices .list{grid-column:7/13;min-width:0;display:flex;flex-direction:column}
+.voices .h2{margin-top:22px}
+.voices figure{margin:0;padding-block:28px;border-bottom:1px solid var(--line)}
+.voices figure:first-of-type{margin-top:36px;border-top:1px solid var(--line)}
+.voices blockquote{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(1.2rem,1.7vw,1.5rem);line-height:1.3;letter-spacing:-.015em}
+.voices figcaption{margin-top:14px;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.voices .disc{margin-top:28px;font-size:.8rem;color:var(--muted);max-width:42em}
+@media (max-width:900px){.voices .ph,.voices .list{grid-column:1/-1}.voices .ph{min-height:0;aspect-ratio:4/3}}
+
+/* ---------- final ---------- */
+.final{position:relative;color:var(--on-dark);background:var(--onyx);isolation:isolate;overflow:hidden}
+.final>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.final::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(20,18,16,.6),rgba(20,18,16,0) 55%),linear-gradient(to right,rgba(20,18,16,.78),rgba(20,18,16,.4) 55%,rgba(20,18,16,.12))}
+.final .inner{padding-block:clamp(110px,14vw,200px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:28px;row-gap:40px;align-items:end}
+.final .t{grid-column:1/8;min-width:0}
+.final h2{margin-top:22px;font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,6.4vw,5.8rem);line-height:.96;letter-spacing:-.045em}
+.final .em{color:var(--orange-soft)}
+.final .box{grid-column:9/13;display:grid;gap:18px;padding:22px 0 0;border-top:1px solid rgba(244,239,230,.55)}
+.final .box p{color:rgba(244,239,230,.9);font-size:.95rem;text-shadow:0 1px 14px rgba(20,18,16,.55)}
+.final .phone{border-color:rgba(244,239,230,.3)}
+.final .phone span{text-shadow:0 1px 14px rgba(20,18,16,.55)}
+.final .copy{border-color:rgba(244,239,230,.45)}
+.phone{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px;border-top:1px solid var(--dark-line);border-bottom:1px solid var(--dark-line)}
+.phone span{font-family:var(--display);font-size:1.35rem;letter-spacing:-.01em;user-select:all;font-variant-numeric:tabular-nums}
+.copy{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;background:none;border:1px solid var(--dark-line);color:var(--on-dark);border-radius:999px;padding:9px 14px;cursor:pointer;transition:border-color .3s}
+.copy:hover{border-color:var(--on-dark)}
+@media (max-width:900px){.final .t,.final .box{grid-column:1/-1}.final::after{background:linear-gradient(to top,rgba(20,18,16,.9),rgba(20,18,16,.45))}}
+
+/* ---------- footer ---------- */
+footer{background:var(--onyx);color:var(--on-dark);padding-block:80px calc(32px + env(safe-area-inset-bottom,0px))}
+footer .top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+footer .about p{margin-top:22px;color:var(--on-dark-2);max-width:24em;font-size:.95rem}
+footer h4{margin:0 0 18px;font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-2)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.95rem}
+footer ul a{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .4s var(--ease)}
+footer ul a:hover{background-size:100% 1px}
+footer .big{margin-top:72px;font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,10.4vw,10.6rem);line-height:.8;letter-spacing:-.04em;color:var(--onyx-2);-webkit-text-stroke:1px rgba(244,239,230,.1);white-space:nowrap;overflow:hidden;user-select:none}
+footer .big span{font-weight:300}
+footer .bot{margin-top:64px;padding-top:22px;border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;font-size:.8rem;color:var(--on-dark-2)}
+footer .bot nav{display:flex;gap:22px}
+footer .bot a{text-decoration:none}
+footer .bot a:hover{text-decoration:underline}
+@media (max-width:900px){footer .top{grid-template-columns:1fr 1fr}footer .about{grid-column:1/-1}}
+@media (max-width:480px){footer .top{grid-template-columns:1fr}}
+
+/* ---------- mobile bar ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(244,239,230,.9);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 -1px 0 var(--line);transform:translateY(110%);transition:transform .55s var(--ease)}
+.bar.show{transform:none}
+.bar .btn{width:100%}
+@media (min-width:961px){.bar{display:none}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .zoom:not(.seen) img{transform:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.3a8.3 8.3 0 0 1-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.3 8.3 0 1 1 12 20.3zm4.6-6.2c-.3-.1-1.5-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.6.1a6.8 6.8 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5.3-.4v-.4l-.8-2c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1 2.5 11.7 11.7 0 0 0 4.5 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1c.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2z"/></symbol>
+  <symbol id="arr" viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="arl" viewBox="0 0 16 16"><path d="M13.5 8h-11M7 3.5 2.5 8 7 12.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap row">
+    <a class="lock" href="#top" aria-label="Descomplic Life, início"><img class="lg-dark" src="img/logo-h-dark.png" alt="" width="760" height="71"><img class="lg-light" src="img/logo-h-light.png" alt="" width="760" height="71"></a>
+    <nav class="links" aria-label="Seções">
+      <a href="#programas">Programas</a><a href="#casa">A Casa</a><a href="#direcao">Direção médica</a><a href="#metodo">Método</a>
+    </nav>
+    <a class="btn btn-o" href="https://wa.me/555197375072" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar avaliação</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Abrir menu"><i></i></button>
+  </div>
+</header>
+<div class="sheet" id="sheet" hidden>
+  <a class="l" href="#programas">Programas</a><a class="l" href="#casa">A Casa</a><a class="l" href="#direcao">Direção médica</a><a class="l" href="#metodo">Método</a><a class="l" href="#contato">Contato</a>
+  <a class="btn btn-o" href="https://wa.me/555197375072" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar avaliação</a>
+</div>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="slides" aria-hidden="true">
+      <div class="slide on s1" data-cap="A Casa · Fachada"><img src="img/entrada-fachada.jpg" alt="" width="1056" height="1872" fetchpriority="high" style="--pos:center 30%;--mpos:42% center"></div>
+      <div class="slide" data-cap="A Casa · Sala de estar"><img src="img/entrada-estar.jpg" alt="" width="1056" height="1872" loading="lazy" style="--pos:center 50%;--mpos:center"></div>
+      <div class="slide" data-cap="A Casa · Lareira"><img src="img/entrada-lareira.jpg" alt="" width="1056" height="1872" loading="lazy" style="--pos:center 58%;--mpos:62% center"></div>
+    </div>
+    <div class="wrap inner">
+      <h1 id="h1">Medicina moderna para quem deseja viver <span class="em">melhor.</span></h1>
+      <div class="row2">
+        <p class="sub">Programas personalizados, equipe multidisciplinar e medicina baseada em ciência, reunidos em um só endereço.</p>
+        <div class="ctas">
+          <a class="btn btn-o" href="https://wa.me/555197375072" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar avaliação</a>
+          <a class="btn btn-line" href="#programas">Ver os programas</a>
+        </div>
+      </div>
+      <div class="meta">
+        <span class="cap"><span class="chip" style="padding:0;border:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none">Casa Descomplic Life · Lajeado, RS</span><span id="slideCap" hidden>A Casa · Fachada</span></span>
+        <div class="dots" id="dots" role="group" aria-label="Imagens de destaque">
+          <button type="button" class="on" aria-label="Imagem 1"></button><button type="button" aria-label="Imagem 2"></button><button type="button" aria-label="Imagem 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marq" aria-hidden="true">
+    <div class="track">
+      <span>Baseado em evidências</span><span>Equipe integrada</span><span>Protocolos personalizados</span><span>Tecnologia a favor do cuidado</span><span>Atendimento humanizado</span>
+      <span>Baseado em evidências</span><span>Equipe integrada</span><span>Protocolos personalizados</span><span>Tecnologia a favor do cuidado</span><span>Atendimento humanizado</span>
+    </div>
+  </div>
+
+  <!-- WELCOME -->
+  <section class="sec welcome" aria-labelledby="h-wel">
+    <div class="wrap grid">
+      <div class="txt">
+        <p class="eyebrow">Nossa filosofia</p>
+        <h2 class="h2" id="h-wel">Saúde é muito mais do que tratar <span class="em">doenças.</span></h2>
+        <p class="lede">É prevenir, envelhecer bem, recuperar energia e autoestima. Por isso cuidamos da pessoa como um todo, com método, ciência e acolhimento.</p>
+        <a class="arrow-link" href="#casa">Conheça a Casa <svg aria-hidden="true"><use href="#arr"/></svg></a>
+      </div>
+      <div class="pics">
+        <div class="p1 zoom"><img src="img/casa-estar.jpg" alt="Sala de estar da Casa Descomplic Life, com lareira de pedra, lustre de cristal e sofás claros" width="1056" height="1872" loading="lazy" style="object-position:center 55%"></div>
+        <div class="p2 zoom"><img src="img/cha.jpg" alt="Mãos segurando uma xícara de chá ao lado de um prato de frutas" width="784" height="1168" loading="lazy"></div>
+        <span class="tag">A Casa · Lajeado</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="sec programs" id="programas" aria-labelledby="h-prog" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Programas</p><h2 class="h2" id="h-prog">Um cuidado para cada <span class="em">fase</span> da vida.</h2></div>
+        <p class="lede">Oito portas de entrada, uma mesma equipe integrada. Toque em um programa para conversar com a gente.</p>
+      </div>
+      <div class="pgrid">
+        <a class="pc big" href="#" data-prog="Descomplicando a Obesidade">
+          <img src="img/bioimpedancia.jpg" alt="Paciente de roupão sobre balança de bioimpedância em sala clara" width="784" height="1168" loading="lazy" style="object-position:center 30%">
+          <span class="go"><svg aria-hidden="true"><use href="#arr"/></svg></span>
+          <span class="in"><span class="k">Obesidade &amp; metabolismo</span><h3>Descomplicando a Obesidade</h3><span class="d">Tratamento médico integrado da obesidade e das doenças metabólicas.</span></span>
+        </a>
+        <a class="pc" href="#" data-prog="Lipedema 360">
+          <img src="img/lipedema.jpg" alt="Médico avaliando as pernas de uma paciente" width="800" height="537" loading="lazy" style="object-position:40% center">
+          <span class="go"><svg aria-hidden="true"><use href="#arr"/></svg></span>
+          <span class="in"><span class="k">Diagnóstico &amp; tratamento</span><h3>Lipedema 360</h3><span class="d">Abordagem multidisciplinar para o diagnóstico e o tratamento do lipedema.</span></span>
+        </a>
+        <a class="pc" href="#" data-prog="Saúde da Mulher">
+          <img src="img/mulher.jpg" alt="Mulher de cabelos grisalhos em consulta" width="800" height="1192" loading="lazy" style="object-position:center 25%">
+          <span class="go"><svg aria-hidden="true"><use href="#arr"/></svg></span>
+          <span class="in"><span class="k">Climatério · menopausa</span><h3>Saúde da Mulher</h3><span class="d">Reposição hormonal quando indicada, saúde íntima e vitalidade.</span></span>
+        </a>
+        <a class="pc" href="#" data-prog="Saúde do Homem">
+          <img src="img/homem-shaker.jpg" alt="Homem em camiseta esportiva segurando uma coqueteleira" width="784" height="1168" loading="lazy" style="object-position:center 20%">
+          <span class="go"><svg aria-hidden="true"><use href="#arr"/></svg></span>
+          <span class="in"><span class="k">Performance · vitalidade</span><h3>Saúde do Homem</h3><span class="d">Hipogonadismo, composição corporal, performance e vitalidade.</span></span>
+        </a>
+        <a class="pc" href="#" data-prog="Medicina Estética">
+          <img src="img/team-estetica.jpg" alt="Profissional realizando procedimento facial em paciente" width="800" height="1192" loading="lazy" style="object-position:center 62%">
+          <span class="go"><svg aria-hidden="true"><use href="#arr"/></svg></span>
+          <span class="in"><span class="k">Facial &amp; corporal</span><h3>Medicina Estética</h3><span class="d">Toxina botulínica, bioestimuladores, preenchimento e harmonização facial.</span></span>
+        </a>
+        <a class="pc" href="#" data-prog="Terapia Capilar">
+          <img src="img/especialista.jpg" alt="Mulher sorrindo com cabelos volumosos à luz do sol" width="800" height="1192" loading="lazy" style="object-position:center 25%">
+          <span class="go"><svg aria-hidden="true"><use href="#arr"/></svg></span>
+          <span class="in"><span class="k">Fortalecimento</span><h3>Terapia Capilar</h3><span class="d">Protocolos modernos para o fortalecimento e a recuperação capilar.</span></span>
+        </a>
+        <a class="pc" href="#" data-prog="Nutrição Especializada">
+          <img src="img/nutricao.jpg" alt="Mulher sorrindo diante de um prato colorido e equilibrado" width="800" height="537" loading="lazy" style="object-position:55% center">
+          <span class="go"><svg aria-hidden="true"><use href="#arr"/></svg></span>
+          <span class="in"><span class="k">GLP-1 · massa muscular</span><h3>Nutrição Especializada</h3><span class="d">Nutrição personalizada para obesidade, lipedema, uso de GLP-1 e doenças metabólicas.</span></span>
+        </a>
+        <a class="pc wide" href="#" data-prog="Terapias Complementares">
+          <img src="img/terapias.jpg" alt="Sessão de massoterapia em ambiente de luz baixa" width="800" height="1192" loading="lazy" style="object-position:center 78%">
+          <span class="go"><svg aria-hidden="true"><use href="#arr"/></svg></span>
+          <span class="in"><span class="k">Recuperação corporal</span><h3>Terapias Complementares</h3><span class="d">Massoterapia, drenagem linfática, ultrassom terapêutico e manta térmica.</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- A CASA -->
+  <section class="sec casa dark" id="casa" aria-labelledby="h-casa">
+    <div class="wrap head">
+      <div class="t"><p class="eyebrow">A Casa · Lajeado</p><h2 class="h2" id="h-casa">Uma casa, uma <span class="em">jornada.</span></h2></div>
+      <div class="side">
+        <p class="lede">Chega-se pela hospitalidade, passa-se pela ciência médica e termina-se no prazer: spa, treino, jardim e convívio.</p>
+        <div class="rail-ctrl"><button type="button" id="prev" aria-label="Ambiente anterior"><svg aria-hidden="true"><use href="#arl"/></svg></button><button type="button" id="next" aria-label="Próximo ambiente"><svg aria-hidden="true"><use href="#arr"/></svg></button></div>
+      </div>
+    </div>
+    <div class="rail" id="rail" tabindex="0" aria-label="Ambientes da Casa">
+      <figure class="room">
+        <div class="ph"><img src="img/casa-recepcao.jpg" alt="Recepção com balcão curvo em pedra clara, iluminação indireta e escada de madeira ao fundo" width="941" height="1672" loading="lazy" style="object-position:center 68%"><div class="label"><span class="sym" aria-hidden="true"></span><span><b>Recepção &amp; Lobby</b><small>Concierge · check-in</small></span></div></div>
+        <figcaption><span class="z">Zona · Hospitalidade</span><p>Você chega e é recebido como em casa, não como em um hospital.</p></figcaption>
+      </figure>
+      <figure class="room">
+        <div class="ph"><img src="img/entrada-estar.jpg" alt="Salão com pé-direito alto, lareira de pedra, lustre de cristal e sofás claros, aberto para o jardim" width="1056" height="1872" loading="lazy" style="object-position:center 58%"><div class="label"><span class="sym" aria-hidden="true"></span><span><b>Salão &amp; Terraço</b><small>Convívio · luz · pausa</small></span></div></div>
+        <figcaption><span class="z">Zona · Convívio</span><p>Um lugar para sentar, conversar e sentir que o tempo desacelera.</p></figcaption>
+      </figure>
+      <figure class="room">
+        <div class="ph"><img src="img/spa.jpg" alt="Spa com espreguiçadeiras brancas sob iluminação circular" width="1168" height="784" loading="lazy" style="object-position:40% center"><div class="label"><span class="sym" aria-hidden="true"></span><span><b>Spa &amp; Recuperação</b><small>Repouso · massoterapia · sono</small></span></div></div>
+        <figcaption><span class="z">Zona · Recuperação</span><p>Saúde também se constrói no repouso.</p></figcaption>
+      </figure>
+      <figure class="room">
+        <div class="ph"><img src="img/repouso.jpg" alt="Mulher descansando em poltrona junto à janela, com chá ao lado" width="784" height="1168" loading="lazy"><div class="label"><span class="sym" aria-hidden="true"></span><span><b>Repouso guiado</b><small>Roupão · chá · jardim</small></span></div></div>
+        <figcaption><span class="z">Zona · Recuperação</span><p>O momento em que o corpo processa o que foi trabalhado.</p></figcaption>
+      </figure>
+      <figure class="room">
+        <div class="ph"><img src="img/cha.jpg" alt="Chá fumegante e prato de frutas sobre bancada de travertino" width="784" height="1168" loading="lazy"><div class="label"><span class="sym" aria-hidden="true"></span><span><b>Nutri-Bar &amp; Ritual</b><small>Shots · chás · cardápio</small></span></div></div>
+        <figcaption><span class="z">Zona · Ritual</span><p>O gesto mais simples da Casa, servir bem, vira ritual.</p></figcaption>
+      </figure>
+      <figure class="room">
+        <div class="ph"><img src="img/leitura.jpg" alt="Homem lendo em poltrona voltada para o jardim de inverno" width="784" height="1168" loading="lazy"><div class="label"><span class="sym" aria-hidden="true"></span><span><b>Estar &amp; Leitura</b><small>Jardim de inverno</small></span></div></div>
+        <figcaption><span class="z">Zona · Convívio</span><p>Uma pausa para respirar entre uma sessão e outra.</p></figcaption>
+      </figure>
+      <figure class="room">
+        <div class="ph"><img src="img/casa-lareira.jpg" alt="Sala com lareira em mármore, poltrona clara e portas de vidro para o jardim" width="1056" height="1872" loading="lazy" style="object-position:center 60%"><div class="label"><span class="sym" aria-hidden="true"></span><span><b>Lounge de Membros</b><small>Encontros · cohorts</small></span></div></div>
+        <figcaption><span class="z">Zona · Membros</span><p>Um canto para ficar mais um pouco, sem pressa de ir embora.</p></figcaption>
+      </figure>
+    </div>
+    <div class="wrap">
+      <ul class="rooms-list" aria-label="Ambientes da Casa">
+        <li>Recepção &amp; Lobby</li><li style="--c:#4D6BC6">Consultório odontológico</li><li>Consultório nutricional</li><li style="--c:#8E9A7C">Quiropraxia &amp; Fisioterapia</li><li style="--c:#8E9A7C">Spa &amp; Recuperação</li><li style="--c:#8E9A7C">Centro de Treinamento</li><li>Salão &amp; Terraço</li><li style="--c:#8E9A7C">Piscina &amp; Jardim</li><li style="--c:#C9A24B">Lounge de Membros</li><li style="--c:#F4EFE6">Corredores &amp; Circulação</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DOCTOR -->
+  <section class="sec doc" id="direcao" aria-label="Direção médica">
+    <div class="wrap grid">
+      <div class="pics">
+        <div class="plate"><img src="img/logo-s-light.png" alt="Descomplic Life" width="900" height="174" loading="lazy"></div>
+        <div class="side zoom"><img src="img/dr-2.jpg" alt="Dr. Matheus Rodrigues Nascimento" width="900" height="1350" loading="lazy"></div>
+      </div>
+      <div class="txt">
+        <blockquote>Por trás de cada corpo existe uma história. <span class="em">É por ela que o tratamento começa.</span></blockquote>
+        <div class="who"><b>Dr. Matheus Rodrigues Nascimento</b><span>Médico · CRM-RS 54451</span></div>
+        <p class="bio">Lidera uma equipe multiprofissional que integra medicina baseada em evidências e cuidado humanizado, com responsabilidade em cada etapa.</p>
+        <div class="ctas">
+          <a class="btn btn-o" href="https://wa.me/555197375072" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar avaliação</a>
+          <a class="btn btn-line" href="https://instagram.com/doutor.matheusnascimento" target="_blank" rel="noopener">@doutor.matheusnascimento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section class="sec method" id="metodo" aria-labelledby="h-met">
+    <div class="wrap">
+      <p class="eyebrow">Como funciona</p>
+      <h2 class="h2" id="h-met">Do primeiro contato ao <span class="em">acompanhamento.</span></h2>
+      <ol class="steps">
+        <li><div class="ph zoom"><img src="img/consulta-nutri.jpg" alt="Profissional de jaleco conversando com paciente em sala clara" width="1400" height="942" loading="lazy" style="object-position:47% center"></div><span class="n">01</span><h3>Escolha o programa</h3><p>A área de cuidado que faz sentido para o seu momento.</p></li>
+        <li><div class="ph zoom"><img src="img/obesidade.jpg" alt="Médico acompanhando paciente em exame de bioimpedância" width="800" height="1192" loading="lazy" style="object-position:center 30%"></div><span class="n">02</span><h3>Avaliação individual</h3><p>Detalhada e baseada em evidências.</p></li>
+        <li><div class="ph zoom"><img src="img/team-nutri.jpg" alt="Médica apresentando um plano alimentar em um tablet" width="800" height="1192" loading="lazy" style="object-position:center 55%"></div><span class="n">03</span><h3>Plano personalizado</h3><p>Desenhado para você e conduzido por uma equipe integrada.</p></li>
+        <li><div class="ph zoom"><img src="img/familia.jpg" alt="Casal de meia-idade caminhando de mãos dadas ao pôr do sol" width="800" height="1192" loading="lazy" style="object-position:center 45%"></div><span class="n">04</span><h3>Acompanhamento contínuo</h3><p>Ajustes ao longo do caminho, com proximidade.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FEED -->
+  <section class="sec feed" aria-labelledby="h-feed">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Viver melhor</p><h2 class="h2" id="h-feed">Saúde se constrói <span class="em">todos os dias.</span></h2></div>
+        <a class="arrow-link" href="https://instagram.com/descompliclife" target="_blank" rel="noopener">@descompliclife <svg aria-hidden="true"><use href="#arr"/></svg></a>
+      </div>
+      <div class="fgrid">
+        <a class="ft photo" href="https://instagram.com/descompliclife" target="_blank" rel="noopener"><img src="img/treino-mulher.jpg" alt="Mulher em roupa de treino em academia iluminada" width="784" height="1168" loading="lazy" style="object-position:center 30%"><span class="sym" aria-hidden="true"></span><span class="cap"><small>Movimento</small><b>Força que dura</b></span></a>
+        <div class="ft paper"><p class="q">Saúde não se compra. <span class="em">Se constrói.</span></p><small>Descomplic Life</small></div>
+        <a class="ft photo" href="https://instagram.com/descompliclife" target="_blank" rel="noopener"><img src="img/yoga.jpg" alt="Mulher alongando sobre um tapete em sala clara" width="784" height="1168" loading="lazy" style="object-position:center 35%"><span class="sym" aria-hidden="true"></span><span class="cap"><small>Mobilidade</small><b>Respirar é treino</b></span></a>
+        <a class="ft photo" href="https://instagram.com/descompliclife" target="_blank" rel="noopener"><img src="img/relogio.jpg" alt="Homem conferindo o relógio esportivo ao pôr do sol" width="784" height="1168" loading="lazy" style="object-position:center 40%"><span class="sym" aria-hidden="true"></span><span class="cap"><small>Performance</small><b>Dados viram energia</b></span></a>
+        <a class="ft navy" href="https://wa.me/555197375072" target="_blank" rel="noopener"><p class="q">Agende sua <span class="em">avaliação.</span></p><small>WhatsApp →</small></a>
+        <a class="ft photo" href="https://instagram.com/descompliclife" target="_blank" rel="noopener"><img src="img/repouso.jpg" alt="Mulher descansando junto à janela" width="784" height="1168" loading="lazy" style="object-position:center 55%"><span class="sym" aria-hidden="true"></span><span class="cap"><small>Recuperação</small><b>Descanso é ciência</b></span></a>
+        <a class="ft photo" href="https://instagram.com/descompliclife" target="_blank" rel="noopener"><img src="img/tenis.jpg" alt="Mulher sacando em uma quadra de tênis de saibro" width="1600" height="1067" loading="lazy" style="object-position:40% center"><span class="sym" aria-hidden="true"></span><span class="cap"><small>Estilo de vida</small><b>Jogar a vida toda</b></span></a>
+        <a class="ft photo" href="https://instagram.com/descompliclife" target="_blank" rel="noopener"><img src="img/pele.jpg" alt="Rosto de mulher de olhos fechados sob luz suave" width="800" height="1192" loading="lazy" style="object-position:center 40%"><span class="sym" aria-hidden="true"></span><span class="cap"><small>Vitalidade</small><b>Pele que respira</b></span></a>
+        <a class="ft photo" href="https://instagram.com/descompliclife" target="_blank" rel="noopener"><img src="img/nutricao.jpg" alt="Refeição equilibrada servida à mesa" width="800" height="537" loading="lazy" style="object-position:55% center"><span class="sym" aria-hidden="true"></span><span class="cap"><small>Nutrição</small><b>Protocolo, não dieta</b></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section class="sec voices" aria-labelledby="h-voices" style="padding-top:0">
+    <div class="wrap grid">
+      <div class="ph zoom"><img src="img/especialista.jpg" alt="Mulher sorrindo ao ar livre, com luz natural" width="800" height="1192" loading="lazy" style="object-position:center 30%"></div>
+      <div class="list">
+        <p class="eyebrow">Quem vive a experiência</p>
+        <h2 class="h2" id="h-voices">Histórias de <span class="em">cuidado.</span></h2>
+        <figure><blockquote>“Me senti acolhida desde a primeira conversa. Aqui existe método, atenção e um cuidado que faz diferença no dia a dia.”</blockquote><figcaption>Paciente · Saúde da Mulher</figcaption></figure>
+        <figure><blockquote>“Uma equipe que realmente trabalha junta. Cada profissional conhece minha história e isso muda toda a experiência.”</blockquote><figcaption>Paciente · Nutrição Especializada</figcaption></figure>
+        <figure><blockquote>“Encontrei uma medicina moderna, próxima e organizada. Passei a entender e a cuidar melhor da minha saúde.”</blockquote><figcaption>Paciente · Descomplicando a Obesidade</figcaption></figure>
+        <p class="disc">Depoimentos autorizados, publicados em conformidade com o Código de Ética Médica do Conselho Federal de Medicina. Não representam promessa de resultado. Resultados variam conforme cada avaliação individual.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final" id="contato" aria-labelledby="h-final">
+    <img src="img/leitura.jpg" alt="" width="784" height="1168" loading="lazy" style="object-position:center 40%">
+    <div class="wrap inner">
+      <div class="t"><p class="eyebrow" style="color:var(--orange-soft)">Comece agora</p><h2 id="h-final">Sua saúde merece um plano <span class="em">pensado para você.</span></h2></div>
+      <div class="box">
+        <p>Converse com a nossa equipe pelo WhatsApp para agendar a sua avaliação ou tirar dúvidas sobre os programas.</p>
+        <div class="phone"><span id="tel">+55 51 9737-5072</span><button class="copy" id="copyBtn" type="button">Copiar</button></div>
+        <a class="btn btn-o" href="https://wa.me/555197375072" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar avaliação</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div class="about">
+        <a class="lock" href="#top" aria-label="Descomplic Life, início"><img src="img/logo-h-dark.png" alt="" width="760" height="71"></a>
+        <p>Ecossistema de medicina personalizada para transformar saúde e qualidade de vida.</p>
+      </div>
+      <div><h4>Contato</h4><ul>
+        <li><a href="https://wa.me/555197375072" target="_blank" rel="noopener">WhatsApp · +55 51 9737-5072</a></li>
+        <li><a href="https://instagram.com/descompliclife" target="_blank" rel="noopener">@descompliclife</a></li>
+        <li><a href="https://instagram.com/doutor.matheusnascimento" target="_blank" rel="noopener">@doutor.matheusnascimento</a></li>
+      </ul></div>
+      <div><h4>Endereço</h4><ul><li>Casa Descomplic Life</li><li>Lajeado · Rio Grande do Sul</li></ul></div>
+      <div><h4>Programas</h4><ul>
+        <li><a href="#programas">Obesidade &amp; metabolismo</a></li><li><a href="#programas">Lipedema 360</a></li><li><a href="#programas">Saúde da Mulher e do Homem</a></li><li><a href="#programas">Estética · Capilar · Nutrição</a></li>
+      </ul></div>
+    </div>
+    <div class="bot">
+      <p>Responsável técnico: Dr. Matheus Rodrigues Nascimento · CRM-RS 54451<br>© 2026 Descomplic Life. Todos os direitos reservados.</p>
+      <nav aria-label="Documentos legais"><a href="#top">Política de privacidade</a><a href="#top">Termos de uso</a></nav>
+    </div>
+  </div>
+</footer>
+
+<div class="bar" id="bar" aria-hidden="true">
+  <a class="btn btn-o" href="https://wa.me/555197375072" target="_blank" rel="noopener" tabindex="-1"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar avaliação</a>
+</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var WA='https://wa.me/555197375072';
+  document.querySelectorAll('[data-prog]').forEach(function(a){
+    var p=a.getAttribute('data-prog');
+    a.href=WA+'?text='+encodeURIComponent('Olá! Gostaria de saber mais sobre o programa '+p+' da Descomplic Life.');
+    a.target='_blank';a.rel='noopener';a.setAttribute('aria-label','Conversar sobre o programa '+p+' pelo WhatsApp');
+  });
+
+  /* hero slideshow */
+  var slides=[].slice.call(document.querySelectorAll('.slide')),dots=[].slice.call(document.querySelectorAll('#dots button')),cap=document.getElementById('slideCap'),cur=0,timer;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(i){slides[cur].classList.remove('on');dots[cur].classList.remove('on');cur=(i+slides.length)%slides.length;
+    var img=slides[cur].querySelector('img');if(img.loading==='lazy')img.loading='eager';
+    slides[cur].classList.add('on');void dots[cur].offsetWidth;dots[cur].classList.add('on');cap.textContent=slides[cur].getAttribute('data-cap');}
+  function auto(){clearInterval(timer);if(!reduce)timer=setInterval(function(){go(cur+1)},6500);}
+  dots.forEach(function(d,i){d.addEventListener('click',function(){go(i);auto();});});
+  auto();
+
+  /* nav + mobile bar */
+  var nav=document.getElementById('nav'),hero=document.querySelector('.hero'),bar=document.getElementById('bar'),barA=bar.querySelector('a');
+  function onScroll(){var past=hero.getBoundingClientRect().bottom<90;nav.classList.toggle('solid',past||!sheet.hidden&&false);document.body.classList.toggle('scrolled',past);
+    var end=(innerHeight+scrollY)>(document.documentElement.scrollHeight-640);var show=past&&!end;bar.classList.toggle('show',show);bar.setAttribute('aria-hidden',String(!show));barA.tabIndex=show?0:-1;}
+  addEventListener('scroll',onScroll,{passive:true});
+
+  /* menu */
+  var mb=document.getElementById('menuBtn'),sheet=document.getElementById('sheet');
+  function setMenu(o){sheet.hidden=!o;mb.setAttribute('aria-expanded',String(o));mb.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');document.documentElement.style.overflow=o?'hidden':'';nav.style.color=o?'var(--on-dark)':'';}
+  mb.addEventListener('click',function(){setMenu(sheet.hidden);});
+  sheet.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden)setMenu(false);});
+  onScroll();
+
+  /* rail */
+  var rail=document.getElementById('rail');
+  function step(dir){var r=rail.querySelector('.room');var w=r?r.getBoundingClientRect().width+18:400;rail.scrollBy({left:dir*w,behavior:reduce?'auto':'smooth'});}
+  document.getElementById('prev').addEventListener('click',function(){step(-1)});
+  document.getElementById('next').addEventListener('click',function(){step(1)});
+
+  /* image reveal */
+  var z=document.querySelectorAll('.zoom');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px'});z.forEach(function(el){io.observe(el)});}
+  else z.forEach(function(el){el.classList.add('seen')});
+
+  /* copy phone */
+  var cb=document.getElementById('copyBtn');
+  cb.addEventListener('click',function(){
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('tel'));var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selecionado';}
+    try{navigator.clipboard.writeText('+55 51 9737-5072').then(function(){cb.textContent='Copiado';setTimeout(function(){cb.textContent='Copiar'},2000)},sel)}catch(e){sel()}
+  });
+})();
+</script>
+
+</body>
+</html>
