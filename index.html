@@ -25,7 +25,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;800&family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500&family=Jost:wght@400;500&family=Style+Script&family=Sacramento&family=Fraunces:opsz,wght,SOFT,WONK@9..144,300,100,1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;800&family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500&family=Jost:wght@400;500&family=Lato:wght@400;700&display=swap">
 <style>
 /* Layout: "a Casa em capítulos" — full-bleed photography carries every section; paper and onyx bands alternate;
    type follows the brand kit: Archivo light for display, one italic Instrument Serif accent in orange, mono eyebrows. */
@@ -362,20 +362,16 @@ footer .bot a:hover{text-decoration:underline}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .zoom:not(.seen) img{transform:none}}
 
-/* ---------- assinatura (Style Script) em botões, menu, faixa e etiquetas ---------- */
-:root{--sign:'Style Script','Segoe Script','Brush Script MT',cursive;--sign-ls:.07em;--sign-ws:.18em}
-.btn,.arrow-link,.nav .links a,.sheet a.l,.chip,.hero .meta,.marq span{font-family:var(--sign);font-weight:400;letter-spacing:var(--sign-ls);word-spacing:var(--sign-ws);text-transform:none}
-.btn{font-family:'Fraunces',Georgia,serif;font-weight:300;font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144;font-size:1.2rem;letter-spacing:.02em;word-spacing:normal}
-.arrow-link{font-size:1.24rem}
-.nav .links a{font-size:1.2rem}
-.sheet a.l{font-size:2.5rem;line-height:1.2;letter-spacing:.05em}
-.chip,.hero .meta{font-size:1.1rem}
+/* ---------- Lato em botões, faixa e etiquetas; Archivo no menu ---------- */
+:root{--clean:'Lato','Inter',system-ui,sans-serif}
+.btn,.arrow-link,.chip,.hero .meta,.marq span{font-family:var(--clean);font-weight:400;letter-spacing:.04em;word-spacing:normal;text-transform:none}
+.btn{font-size:1rem}
+.arrow-link{font-size:.98rem}
+.chip,.hero .meta{font-size:.92rem}
+.marq span{font-size:1.02rem}
+.nav .links a{font-family:var(--display);font-weight:300;font-size:.92rem;letter-spacing:0;text-transform:none}
+.sheet a.l{font-family:var(--display);font-weight:300;font-size:1.65rem;letter-spacing:-.02em;line-height:1.2;padding-block:14px}
 @media (max-width:640px){.hero .meta{flex-wrap:wrap;row-gap:14px}.hero .meta .cap{flex:1 1 100%;white-space:nowrap}}
-.marq span{font-size:1.35rem}
-.marq span,.sheet a.l,.nav .links a{font-family:'Sacramento','Style Script',cursive;font-weight:400;letter-spacing:.02em;word-spacing:.1em}
-.marq span{font-size:1.9rem}
-.sheet a.l{font-size:3.1rem;line-height:1.15}
-.nav .links a{font-size:1.55rem}
 </style>
 </head>
 <body>
