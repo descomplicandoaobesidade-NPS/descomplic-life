@@ -363,13 +363,15 @@ footer .bot a:hover{text-decoration:underline}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .zoom:not(.seen) img{transform:none}}
 
 /* ---------- assinatura (Style Script) em botões, menu, faixa e etiquetas ---------- */
-:root{--sign:'Style Script','Segoe Script','Brush Script MT',cursive}
-.btn{font-family:var(--sign);font-weight:400;font-size:1.4rem;letter-spacing:0;text-transform:none}
-.arrow-link{font-family:var(--sign);font-size:1.3rem;letter-spacing:0;text-transform:none}
-.nav .links a{font-family:var(--sign);font-size:1.25rem;letter-spacing:0;text-transform:none}
-.sheet a.l{font-family:var(--sign);font-weight:400;font-size:2.7rem;letter-spacing:0;line-height:1.15}
-.chip,.hero .meta{font-family:var(--sign);font-size:1.15rem;letter-spacing:.01em;text-transform:none}
-.marq span{font-family:var(--sign);font-size:1.45rem;letter-spacing:0;text-transform:none}
+:root{--sign:'Style Script','Segoe Script','Brush Script MT',cursive;--sign-ls:.07em;--sign-ws:.18em}
+.btn,.arrow-link,.nav .links a,.sheet a.l,.chip,.hero .meta,.marq span{font-family:var(--sign);font-weight:400;letter-spacing:var(--sign-ls);word-spacing:var(--sign-ws);text-transform:none}
+.btn{font-size:1.32rem}
+.arrow-link{font-size:1.24rem}
+.nav .links a{font-size:1.2rem}
+.sheet a.l{font-size:2.5rem;line-height:1.2;letter-spacing:.05em}
+.chip,.hero .meta{font-size:1.1rem}
+@media (max-width:640px){.hero .meta{flex-wrap:wrap;row-gap:14px}.hero .meta .cap{flex:1 1 100%;white-space:nowrap}}
+.marq span{font-size:1.35rem}
 </style>
 </head>
 <body>
